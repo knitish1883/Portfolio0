@@ -1,0 +1,421 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ========================================
+   ROOT VARIABLES — Anti-Gravity Theme
+   ======================================== */
+:root {
+  --void-black: #030308;
+  --void-deep: #06060f;
+  --panel-glass: rgba(255, 255, 255, 0.03);
+  --panel-glass-hover: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 255, 255, 0.06);
+  --panel-border-hover: rgba(100, 180, 255, 0.15);
+  --neon-blue: #4d9fff;
+  --neon-violet: #8b5cf6;
+  --neon-cyan: #22d3ee;
+  --neon-purple: #a855f7;
+  --neon-pink: #ec4899;
+  --chrome-white: #e2e8f0;
+  --chrome-silver: #94a3b8;
+  --glow-blue: rgba(77, 159, 255, 0.4);
+  --glow-violet: rgba(139, 92, 246, 0.4);
+  --glow-cyan: rgba(34, 211, 238, 0.3);
+}
+
+/* ========================================
+   BASE RESETS
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-violet) var(--void-black);
+}
+
+body {
+  background-color: var(--void-black);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   SCROLLBAR — Holographic
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-blue), var(--neon-violet), var(--neon-cyan));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-violet), var(--neon-blue));
+  box-shadow: 0 0 12px var(--glow-violet);
+}
+
+/* ========================================
+   GLASSMORPHISM — Premium Glass Panels
+   ======================================== */
+.glass-panel {
+  background: var(--panel-glass);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  background: var(--panel-glass-hover);
+  border-color: var(--panel-border-hover);
+  box-shadow:
+    0 0 30px rgba(77, 159, 255, 0.08),
+    0 0 60px rgba(139, 92, 246, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(100, 180, 255, 0.12);
+  box-shadow: 0 0 24px rgba(77, 159, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   NEON GLOW EFFECTS
+   ======================================== */
+.glow-text-blue {
+  text-shadow:
+    0 0 10px rgba(77, 159, 255, 0.6),
+    0 0 30px rgba(77, 159, 255, 0.3),
+    0 0 60px rgba(77, 159, 255, 0.1);
+}
+
+.glow-text-violet {
+  text-shadow:
+    0 0 10px rgba(139, 92, 246, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.3),
+    0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+.glow-text-cyan {
+  text-shadow:
+    0 0 10px rgba(34, 211, 238, 0.6),
+    0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+.glow-box-blue {
+  box-shadow:
+    0 0 20px rgba(77, 159, 255, 0.15),
+    0 0 40px rgba(77, 159, 255, 0.05);
+}
+
+.glow-box-violet {
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.15),
+    0 0 40px rgba(139, 92, 246, 0.05);
+}
+
+/* ========================================
+   GRADIENT TEXT — Premium
+   ======================================== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-violet), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-subtle {
+  background: linear-gradient(135deg, var(--chrome-white) 0%, var(--neon-blue) 50%, var(--neon-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   FLOATING ANIMATIONS — Anti-Gravity
+   ======================================== */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  25% { transform: translateY(-12px) rotateX(0.5deg); }
+  50% { transform: translateY(-6px) rotateX(-0.3deg); }
+  75% { transform: translateY(-18px) rotateX(0.2deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+  33% { transform: translateY(-15px) rotateZ(0.5deg); }
+  66% { transform: translateY(-8px) rotateZ(-0.3deg); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes drift-horizontal {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(20px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-drift {
+  animation: drift-horizontal 10s ease-in-out infinite;
+}
+
+/* ========================================
+   HOLOGRAPHIC EFFECTS
+   ======================================== */
+.holographic-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    transparent 20%,
+    var(--neon-blue) 30%,
+    var(--neon-violet) 50%,
+    var(--neon-cyan) 70%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 4s linear infinite;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.holographic-border::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--void-deep);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ========================================
+   3D SCENE OVERLAY STYLES
+   ======================================== */
+.scene-overlay {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scene-overlay > * {
+  pointer-events: auto;
+}
+
+/* ========================================
+   SECTION STYLING
+   ======================================== */
+.section-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   INPUT STYLING — Chrome Theme
+   ======================================== */
+.input-chrome {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: white;
+  padding: 14px 18px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-chrome::placeholder {
+  color: rgba(148, 163, 184, 0.4);
+}
+
+.input-chrome:focus {
+  border-color: var(--neon-blue);
+  box-shadow:
+    0 0 0 3px rgba(77, 159, 255, 0.1),
+    0 0 20px rgba(77, 159, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   BUTTON STYLES — Premium
+   ======================================== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-violet));
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--neon-violet), var(--neon-cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(77, 159, 255, 0.4);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--neon-violet);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 14px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--neon-violet);
+  background: rgba(139, 92, 246, 0.08);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SELECTION STYLING
+   ======================================== */
+::selection {
+  background-color: rgba(139, 92, 246, 0.4);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(139, 92, 246, 0.4);
+  color: white;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-balance {
+  text-wrap: balance;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Line decoration */
+.line-glow {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), var(--neon-violet), transparent);
+  border-radius: 2px;
+}
